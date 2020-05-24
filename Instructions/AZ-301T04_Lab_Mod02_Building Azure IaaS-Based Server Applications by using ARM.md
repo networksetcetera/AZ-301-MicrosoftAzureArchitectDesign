@@ -483,8 +483,13 @@ _HINT: some lab instructions may allow you to "auto-type" these commands using t
     ```sh
     export PATH="$HOME/.npm-global/bin:$PATH"
     ```
+_HINT: ensure that your mouse is focussed on the Cloud Shell.  This is a great refresher for Unix/Linux text edits_
+
+![vi](https://github.com/networksetcetera/AZ-301-MicrosoftAzureArchitectDesign/blob/master/Instructions/images/Screen%20Shot%202020-05-24%20at%202.14.40%20PM.png)
 
 1. At the **Cloud Shell** command prompt, in the vi editor interface, to save your changes and close the file, press **Esc**, press **:**, type **wq!** and press **Enter**.
+
+![Save](https://github.com/networksetcetera/AZ-301-MicrosoftAzureArchitectDesign/blob/master/Instructions/images/Screen%20Shot%202020-05-24%20at%202.15.41%20PM.png)
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to install the Azure Building Blocks npm package:
 
