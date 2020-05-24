@@ -243,6 +243,8 @@
 
 1. On the **Everything** blade, in the search results, click **Template deployment**.
 
+![Template](https://github.com/networksetcetera/AZ-301-MicrosoftAzureArchitectDesign/blob/master/Instructions/images/Screen%20Shot%202020-05-24%20at%201.58.47%20PM.png)
+
 1. On the **Template deployment** blade, click the **Create** button.
 
 1. On the **Custom deployment** blade, click the **Build your own template in the editor** link.
