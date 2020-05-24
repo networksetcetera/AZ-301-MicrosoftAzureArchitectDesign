@@ -84,7 +84,7 @@
 
     - In the **Virtual network** section, click **Create new**.
 
-    - On the **Create virtual network** blade, specify the following settings and click **OK**:
+    - On the **Create virtual network** blade, specify the following settings and click **OK**: _HINT: click "create" under "virtual network"_
 
         - In the **Name** text box, enter the value **lab03vnet0**.
 
