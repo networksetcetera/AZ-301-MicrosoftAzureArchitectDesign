@@ -464,6 +464,7 @@ _HINT: ensure that you are running the "Bash" shell.  You can switch between "Ba
     ```sh
     mkdir ~/.npm-global
     ```
+_HINT: some lab instructions may allow you to "auto-type" these commands using the "T" text tool_    
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to update the npm configuration to include the new local directory:
 
