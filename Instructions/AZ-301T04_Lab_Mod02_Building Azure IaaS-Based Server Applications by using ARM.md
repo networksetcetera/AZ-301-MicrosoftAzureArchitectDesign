@@ -74,6 +74,8 @@
 
     - Click **Next: Disks >**
 
+![https://github.com/networksetcetera/AZ-301-MicrosoftAzureArchitectDesign/blob/master/Instructions/images/Screen%20Shot%202020-05-24%20at%201.22.10%20PM.png]
+
 1. On the **Disks** tab, perform the following tasks (leave all other settings with their default values):
 
     - Ensure that the **OS disk type** dropdown list entry is set to **Standard HDD**
