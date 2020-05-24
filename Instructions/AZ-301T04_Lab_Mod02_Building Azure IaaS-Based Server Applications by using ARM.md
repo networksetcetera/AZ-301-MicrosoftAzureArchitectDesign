@@ -44,6 +44,8 @@
 
 1. On the **Everything** blade, in the search results, click **Windows Server**. _HINT: if this option is not available you can select "Windows Server 2016 Datacenter" from the list of popular options_
 
+![create](https://github.com/networksetcetera/AZ-301-MicrosoftAzureArchitectDesign/blob/master/Instructions/images/Screen%20Shot%202020-05-24%20at%201.37.24%20PM.png)
+
 1. On the **Windows Server** blade, select the **[smalldisk] Windows Server 2016 Datacenter** software plan, then click the **Create** button.
 
 1. On the **Basics** tab, perform the following tasks (leave all other settings with their default values):
