@@ -162,7 +162,9 @@
 
 #### Task 4: Create an Azure Storage account
 
-1. In the upper left corner of the Azure portal, click **Create a resource**.
+1. In the upper left corner of the Azure portal, click **Create a resource**. _HINT: you may need to return to the "home" page in the Azure Portal_
+
+![Home](https://github.com/networksetcetera/AZ-301-MicrosoftAzureArchitectDesign/blob/master/Instructions/images/Screen%20Shot%202020-05-24%20at%201.42.57%20PM.png)
 
 1. At the top of the **New** blade, in the **Search the Marketplace** text box, type **Storage account** and press **Enter**.
 
