@@ -42,7 +42,7 @@
 
 1. At the top of the **New** blade, in the **Search the Marketplace** text box, type **Windows Server** and press **Enter**.
 
-1. On the **Everything** blade, in the search results, click **Windows Server**.
+1. On the **Everything** blade, in the search results, click **Windows Server**. _HINT: if this option is not avaiable you can select "Windows Server 2016 Datacenter" from the list of popular options
 
 1. On the **Windows Server** blade, select the **[smalldisk] Windows Server 2016 Datacenter** software plan, then click the **Create** button.
 
