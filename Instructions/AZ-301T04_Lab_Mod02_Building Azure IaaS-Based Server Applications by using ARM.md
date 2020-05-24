@@ -62,7 +62,7 @@
 
     - Leave the entry in the **Image** drop-down list set to its default value.
 
-    - Ensure that the size is set to **Standard D2s v3**
+    - Ensure that the size is set to **Standard D2s v3** _HINT: you may need to select another size from the default_
 
     - In the **Username** text box, enter the value **Student**.
 
