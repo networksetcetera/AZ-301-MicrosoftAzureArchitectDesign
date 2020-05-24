@@ -109,6 +109,8 @@
     - Leave the **Accelerated networking** entry set to its default value.
 
     - Click **Next: Management >**
+    
+![Networking](https://github.com/networksetcetera/AZ-301-MicrosoftAzureArchitectDesign/blob/master/Instructions/images/Screen%20Shot%202020-05-24%20at%201.24.08%20PM.png)    
 
 1. On the **Management** tab, perform the following tasks (leave all other settings with their default values):
 
