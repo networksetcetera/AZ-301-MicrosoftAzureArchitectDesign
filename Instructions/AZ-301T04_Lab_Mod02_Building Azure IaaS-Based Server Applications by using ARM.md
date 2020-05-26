@@ -512,7 +512,7 @@ _HINT: ensure that your mouse is focussed on the Cloud Shell.  This is a great r
     ```sh
     azbb -V
     ```
-_HINT: this should return the version number of the package 
+_HINT: this should return the version number of the package_
 
 #### Task 3: Deploy a Windows Server 2016 Azure VM from Cloud Shell by using Azure Building Blocks
 
@@ -531,17 +531,10 @@ _HINT: this should return the version number of the package
 3. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to open the text editor:
 
     ```
-    code t1.json
+    code tutorial.json
     ```
 4. Paste the file you copied using **CTRL-V**
 
-5. Change the value of "vmCount" from 3 to 2
-
-1.  At the **Cloud Shell** command prompt, type in the following command and press **Enter** to view the content of the Azure Building Block parameter file you will use for this deployment:
-
-    ```sh
-    cat ./reference-architectures/virtual-machines/single-vm/parameters/windows/single-vm.json
-    ```
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to create a variable which value designates the name of your Azure subscription:
 
