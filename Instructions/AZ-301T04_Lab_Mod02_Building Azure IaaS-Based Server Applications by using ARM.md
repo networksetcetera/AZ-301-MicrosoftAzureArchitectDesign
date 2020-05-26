@@ -507,13 +507,38 @@ _HINT: ensure that your mouse is focussed on the Cloud Shell.  This is a great r
 
     > **Note**: You need to restart Cloud Shell for the installation of the Buliding Blocks npm package to take effect.
 
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to test the installation
+
+    ```sh
+    azbb -V
+    ```
 
 #### Task 3: Deploy a Windows Server 2016 Azure VM from Cloud Shell by using Azure Building Blocks
 
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to download the GitHub repository containing the Azure Building Blocks reference architecture files:
+1. (Using your lab machine) Open a new tab in your browser and visit 
+
+ https://github.com/mspnp/template-building-blocks
+ 
+ _HINT: you will see some examples of template files_
+
+1. Observe the sample code for deploying a Virtual Machine. Copy the text for the first sample template
+
+``` json
+"type": "VirtualMachine",
+"settings": {
+    "vmCount": 3,
+    "osType": "windows",
+    "namePrefix": "test",
+    "adminPassword": "testPassw0rd!23",
+    "nics": [{"subnetName": "web"}],
+    "virtualNetwork": {"name": "ra-vnet"}
+}
+```
+
+1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to open the text editor:
 
     ```
-    git clone https://github.com/mspnp/reference-architectures.git
+    code t1.json
     ```
 
 1.  At the **Cloud Shell** command prompt, type in the following command and press **Enter** to view the content of the Azure Building Block parameter file you will use for this deployment:
