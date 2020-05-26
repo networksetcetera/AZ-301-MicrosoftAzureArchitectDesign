@@ -548,22 +548,19 @@ _HINT: this should return the version number of the package_
     RESOURCE_GROUP='AADesignLab0303-RG'
     ```
 
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to create a variable which value designates the Azure region you will use for the deployment:
+1. Choose a location that is close to you. For example 'eastus' or'westus2'
 
-    ```sh
-    LOCATION=$(az group list --query "[?name == 'AADesignLab0301-RG'].location" --output tsv)
-    ```
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to create a resource group that you will use for the deployment:
 
     ```sh
-    az group create --name $RESOURCE_GROUP --location $LOCATION
+    az group create --name $RESOURCE_GROUP --location <your location>
     ```
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to deploy a Windows Server 2016 Azure VM by using the Azure Building Blocks:
 
     ```sh
-    azbb -g $RESOURCE_GROUP -s $SUBSCRIPTION_ID -l $LOCATION -p ./reference-architectures/virtual-machines/single-vm/parameters/windows/single-vm.json --deploy
+    azbb -g $RESOURCE_GROUP -s $SUBSCRIPTION_ID -l <your location> -p ./reference-architectures/virtual-machines/single-vm/parameters/windows/single-vm.json --deploy
     ```
 
 1. Wait for the deployment to complete before you proceed to the next task.
