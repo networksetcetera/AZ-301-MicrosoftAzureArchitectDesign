@@ -455,7 +455,7 @@
 
 #### Task 2: Install the Azure Building Blocks npm package in Azure Cloud Shell
 
-_HINT: ensure that you are running the "Bash" shell.  You can switch between "Bash" and "Powershell" in the top left corner menu of the Cloud Shell
+_HINT: ensure that you are running the "Bash" shell.  You can switch between "Bash" and "Powershell" in the top left corner menu of the Cloud Shell_
 
 ![Bash](https://github.com/networksetcetera/AZ-301-MicrosoftAzureArchitectDesign/blob/master/Instructions/images/Screen%20Shot%202020-05-24%20at%202.06.34%20PM.png)
 
