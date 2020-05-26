@@ -569,7 +569,7 @@ _HINT: this should return the version number of the package_
 1. Wait for the deployment to complete before you proceed to the next task.
 
 
-#### Task 4: Validate that the Windows Server 2016 Azure VM is serving web content
+#### Task 4: Confirm that the deployment succeeded
 
 1. In the hub menu in the Azure portal, click **Resource groups**.
 
