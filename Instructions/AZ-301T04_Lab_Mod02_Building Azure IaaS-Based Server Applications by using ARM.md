@@ -514,15 +514,18 @@ _HINT: ensure that your mouse is focussed on the Cloud Shell.  This is a great r
     ```
 _HINT: this should return the version number of the package_
 
-#### Task 3: Deploy a Windows Server 2016 Azure VM from Cloud Shell by using Azure Building Blocks
+#### Task 3: Deploy an Azure VNET from Cloud Shell by using Azure Building Blocks
 
 1. (Using your lab machine) Open a new tab in your browser and visit 
 
  https://github.com/mspnp/template-building-blocks
  
  _HINT: you will see some examples of template files_
+ 
+ - You can find tutorials by selecting "wiki"
+ - You can find sample tutorial JSON files by browsing to "scenarios" then "tutorials"
 
-2. Observe the sample code for deploying a Virtual Machine. Copy the text for the first sample template using **CTRL-C**
+2. Observe the sample code for deploying a Virtual Network. Copy the text for "tutorial 2" using **CTRL-C**
 
 ``` json
 
@@ -560,7 +563,7 @@ _HINT: this should return the version number of the package_
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to deploy a Windows Server 2016 Azure VM by using the Azure Building Blocks:
 
     ```sh
-    azbb -g $RESOURCE_GROUP -s $SUBSCRIPTION_ID -l <your location> -p ./reference-architectures/virtual-machines/single-vm/parameters/windows/single-vm.json --deploy
+    azbb -g $RESOURCE_GROUP -s $SUBSCRIPTION_ID -l <your location> -p tutorial.json --deploy
     ```
 
 1. Wait for the deployment to complete before you proceed to the next task.
@@ -570,130 +573,26 @@ _HINT: this should return the version number of the package_
 
 1. In the hub menu in the Azure portal, click **Resource groups**.
 
-1. On the **Resource groups** blade, click the entry representing the resource group into which you deployed the Windows Server 2016 Datacenter virtual machine earlier in this exercise.
+1. On the **Resource groups** blade, click the entry representing the resource group into which you deployed the virtual network earlier in this exercise.
 
-1. On the resource group blade, click the entry representing the virtual machine you deployed.
+1. On the resource group blade, click the entry representing the virtual networks you deployed.
 
-1. On the **Virtual machine** blade, locate the **Public IP address** entry, and identify its value.
+1. Select one of the networks and look at the settings for "Address space" and "Subnets"
 
-1. Open a new Microsoft Edge tab and navigate to the IP address you identified in the previous step.
+1. Select "diagram" from the left navigation (_HINT: you will need to scroll down_)
 
-1. Verify that you are able to access the default Internet Information Services webpage.
+1. select either network name to see a diagram 
 
-1. Close the new browser tab.
-
-
-#### Task 5: Deploy a Linux Azure VM from Cloud Shell by using Azure Building Blocks
-
-1.  At the **Cloud Shell** command prompt, type in the following command and press **Enter** to view the content of the Azure Building Block parameter file you will use for this deployment:
-
-    ```sh
-    cat ./reference-architectures/virtual-machines/single-vm/parameters/linux/single-vm.json
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to generate the SSH key pair that you will use to authenticate when accessing the Linux VM:
-
-    ```sh
-    ssh-keygen -t rsa -b 2048
-    ```
-
-    - When prompted to enter the file in which to save the key, press **Enter** to accept the default value **(~/.ssh/id_rsa)**.
-
-    - When prompted to enter passphrase, press **Enter** twice.
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to create a variable which value designates the public key of the newly generated key pair:
-
-    ```sh
-    PUBLIC_KEY=$(cat ~/.ssh/id_rsa.pub)
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to create a variable which value designates the public key of the newly generated key pair and which takes into account any special character the public key might include:
-
-    ```sh
-    PUBLIC_KEY_REGEX="$(echo $PUBLIC_KEY | sed -e 's/\\/\\\\/g; s/\//\\\//g; s/&/\\\&/g')"
-    ```
-
-    > **Note**: This is necessary because you will use the **sed** utility to insert this string into the Azure Building Blocks parameter file. Alternatively, you could simply open the file and enter the public key string directly into the file.
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to create a variable which value designates the name of your Azure subscription:
-
-    ```sh
-    SUBSCRIPTION_ID=$(az account list --query "[0].id" --output tsv | tr -d '"')
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to create a variable which value designates the name of the resource group you will use for the deployment:
-
-    ```sh
-    RESOURCE_GROUP='AADesignLab0304-RG'
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to create a variable which value designates the Azure region you will use for the deployment:
-
-    ```sh
-    LOCATION=$(az group list --query "[?name == 'AADesignLab0301-RG'].location" --output tsv)
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to replace the placeholder for the **adminUsername** parameter with the value **Student** in the Building Blocks parameter file:
-
-    ```sh
-    sed -i.bak1 's/"adminUsername": ""/"adminUsername": "Student"/' ./reference-architectures/virtual-machines/single-vm/parameters/linux/single-vm.json
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to replace the placeholder for the **sshPublicKey** parameter with the value of the **$PUBLIC_KEY_REGEX** variable in the Building Blocks parameter file:
-
-    ```sh
-    sed -i.bak2 's/"sshPublicKey": ""/"sshPublicKey": "'"$PUBLIC_KEY_REGEX"'"/' ./reference-architectures/virtual-machines/single-vm/parameters/linux/single-vm.json
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to set the value of the size parameter of the virtual machines to **Standard_D2s_v3** in the Building Blocks parameter file:
-
-    ```sh
-    sed -i.bak3 's/"Standard_DS1_v2"/"Standard_D2s_v3"/g' ./reference-architectures/virtual-machines/single-vm/parameters/linux/single-vm.json
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to verify that the parameter values were successfully changed in the Building Blocks parameter file:
-
-    ```sh
-    cat ./reference-architectures/virtual-machines/single-vm/parameters/linux/single-vm.json
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to create a new resource group:
-
-    ```sh
-    az group create --name $RESOURCE_GROUP --location $LOCATION
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to deploy a Linux Azure VM by using the Azure Building Blocks:
-
-    ```sh
-    azbb -g $RESOURCE_GROUP -s $SUBSCRIPTION_ID -l $LOCATION -p ./reference-architectures/virtual-machines/single-vm/parameters/linux/single-vm.json --deploy
-    ```
-
-1. Wait for the deployment to complete before you proceed to the next task.
+1. Click on the name of one of the networks. This will show the settings. Observe the "Peerings" setting. We will explore this more in the next learning module 
 
 
-#### Task 7: Validate that the Linux Azure VM is serving web content
 
-1. In the hub menu in the Azure portal, click **Resource groups**.
-
-1. On the **Resource groups** blade, click the entry representing the resource group into which you deployed the virtual machine.
-
-1. On the resource group blade, click the entry representing the virtual machine you deployed.
-
-1. On the **Virtual machine** blade, locate the **Public IP address** entry, and identify its value.
-
-1. Open a new Microsoft Edge tab and navigate to the IP address you identified in the previous step.
-
-1. Verify that you are able to access the default Apache2 Ubuntu webpage.
-
-1. Close the new browser tab.
-
-1. Close the **Cloud Shell** pane.
-
-> **Review**: In this exercise, you deployed Azure VMs running Windows Server 2016 Datacenter and Linux from Cloud Shell by using Azure Building Blocks.
+> **Review**: In this exercise, you deployed Azure network from Cloud Shell by using Azure Building Blocks.
 
 
 ## Exercise 4: Remove lab resources
+
+_HINT: you can also delete the Resource Groups using the Azure Portal. You can aso decommission any Virtual machines and keep your designs_
 
 #### Task 1: Open Cloud Shell
 
