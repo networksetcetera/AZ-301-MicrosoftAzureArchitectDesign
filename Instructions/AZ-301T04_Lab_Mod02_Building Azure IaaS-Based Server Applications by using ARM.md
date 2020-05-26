@@ -512,6 +512,7 @@ _HINT: ensure that your mouse is focussed on the Cloud Shell.  This is a great r
     ```sh
     azbb -V
     ```
+_HINT: this should return the version number of the package 
 
 #### Task 3: Deploy a Windows Server 2016 Azure VM from Cloud Shell by using Azure Building Blocks
 
@@ -521,25 +522,20 @@ _HINT: ensure that your mouse is focussed on the Cloud Shell.  This is a great r
  
  _HINT: you will see some examples of template files_
 
-1. Observe the sample code for deploying a Virtual Machine. Copy the text for the first sample template
+2. Observe the sample code for deploying a Virtual Machine. Copy the text for the first sample template using **CTRL-C**
 
 ``` json
-"type": "VirtualMachine",
-"settings": {
-    "vmCount": 3,
-    "osType": "windows",
-    "namePrefix": "test",
-    "adminPassword": "testPassw0rd!23",
-    "nics": [{"subnetName": "web"}],
-    "virtualNetwork": {"name": "ra-vnet"}
-}
+
 ```
 
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to open the text editor:
+3. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to open the text editor:
 
     ```
     code t1.json
     ```
+4. Paste the file you copied using **CTRL-V**
+
+5. Change the value of "vmCount" from 3 to 2
 
 1.  At the **Cloud Shell** command prompt, type in the following command and press **Enter** to view the content of the Azure Building Block parameter file you will use for this deployment:
 
@@ -569,29 +565,6 @@ _HINT: ensure that your mouse is focussed on the Cloud Shell.  This is a great r
 
     ```sh
     az group create --name $RESOURCE_GROUP --location $LOCATION
-    ```
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to replace the placeholder for the **adminUsername** parameter with the value **Student** in the Building Blocks parameter file:
-
-    ```sh
-    sed -i.bak1 's/"adminUsername": ""/"adminUsername": "Student"/' ./reference-architectures/virtual-machines/single-vm/parameters/windows/single-vm.json
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to replace the placeholder for the **adminPassword** parameter with the value **Pa55w.rd1234** in the Building Blocks parameter file:
-
-    ```sh
-    sed -i.bak2 's/"adminPassword": ""/"adminPassword": "Pa55w.rd1234"/' ./reference-architectures/virtual-machines/single-vm/parameters/windows/single-vm.json
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to set the value of the size parameter of the virtual machines to **Standard_D2s_v3** in the Building Blocks parameter file:
-
-    ```sh
-    sed -i.bak3 's/"Standard_DS1_v2"/"Standard_D2s_v3"/g' ./reference-architectures/virtual-machines/single-vm/parameters/windows/single-vm.json
-    ```
-
-1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to verify that the parameter values were successfully changed in the Building Blocks parameter file:
-
-    ```sh
-    cat ./reference-architectures/virtual-machines/single-vm/parameters/windows/single-vm.json
     ```
 
 1. At the **Cloud Shell** command prompt, type in the following command and press **Enter** to deploy a Windows Server 2016 Azure VM by using the Azure Building Blocks:
